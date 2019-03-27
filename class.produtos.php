@@ -11,7 +11,10 @@
         }
 
         function delete_produto( $indice ) {
-            array_splice( $this->lista, $indice, 1 );
+            foreach( $this->lista as $i => $prod ) {
+                if( $prod->get_indice() == $indice )
+                    array_splice( $this->lista, $i, 1 );
+            }
         }
 
         function get_produto( $indice = false ) {
